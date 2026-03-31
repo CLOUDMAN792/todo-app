@@ -2,6 +2,10 @@
 <html>
 <head>
     <title>To-Do App</title>
+
+    <!-- ✨ Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,13 +13,11 @@
     <div class="container">
         <h1>My To-Do List 📝</h1>
 
-        <!-- INPUT + BUTTONS -->
         <input type="text" id="taskInput" placeholder="Enter a task">
         <button onclick="addTask()">Add</button>
         <button onclick="clearTasks()">Clear All</button>
         <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-        <!-- TASK LIST -->
         <ul id="taskList"></ul>
     </div>
 

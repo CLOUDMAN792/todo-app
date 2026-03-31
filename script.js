@@ -6,19 +6,18 @@ function addTask() {
 
     const li = document.createElement("li");
 
-    // 📝 Task text
     const span = document.createElement("span");
     span.textContent = taskText;
 
-    // ✔️ Mark as completed
+    // ✔️ Complete
     span.onclick = function () {
         span.classList.toggle("completed");
         saveTasks();
     };
 
-    // ✏️ Edit button
+    // ✏️ Edit
     const editBtn = document.createElement("button");
-    editBtn.textContent = "Edit";
+    editBtn.innerHTML = "✏️";
     editBtn.onclick = function () {
         const newText = prompt("Edit task:", span.textContent);
         if (newText) {
@@ -27,44 +26,50 @@ function addTask() {
         }
     };
 
-    // ❌ Delete button
+    // ❌ Delete (animated)
     const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
+    deleteBtn.innerHTML = "❌";
     deleteBtn.onclick = function () {
-        li.remove();
-        saveTasks();
+        li.classList.add("remove");
+
+        setTimeout(() => {
+            li.remove();
+            saveTasks();
+        }, 300);
     };
 
-    // 📦 Add everything to list item
     li.appendChild(span);
     li.appendChild(editBtn);
     li.appendChild(deleteBtn);
 
-    // 📍 Add to list
     document.getElementById("taskList").appendChild(li);
 
-    // 🧹 Clear input
     input.value = "";
 
     saveTasks();
 }
 
+// Save
 function saveTasks() {
     localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
 }
 
+// Load
 function loadTasks() {
-    document.getElementById("taskList").innerHTML = localStorage.getItem("tasks") || "";
+    document.getElementById("taskList").innerHTML =
+        localStorage.getItem("tasks") || "";
 }
 
+// Clear all
 function clearTasks() {
     document.getElementById("taskList").innerHTML = "";
     saveTasks();
 }
 
+// Dark mode
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
 
-// 🚀 Load tasks on page load
+// Load on start
 loadTasks();

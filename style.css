@@ -1,28 +1,49 @@
 body {
-    font-family: Arial;
-    background: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+
+    background: url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 .container {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     margin: 50px auto;
-    width: 300px;
-    border-radius: 10px;
+    width: 320px;
+    border-radius: 12px;
 }
 
 input {
     padding: 10px;
     width: 70%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 button {
     padding: 10px;
     margin: 5px;
     cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: 0.2s;
 }
 
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Task */
 li {
     list-style: none;
     padding: 10px;
@@ -30,6 +51,14 @@ li {
     background: #eee;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.4s ease;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    transform: scale(1.03);
+    background: #ddd;
 }
 
 .completed {
@@ -37,16 +66,64 @@ li {
     color: gray;
 }
 
-/* 🌙 Dark Mode */
+/* Buttons inside task */
+li button {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+li button:hover {
+    transform: scale(1.2);
+}
+
+/* Edit button */
+li button:first-of-type {
+    color: #007bff;
+}
+
+/* Delete button */
+li button:last-child {
+    color: red;
+}
+
+/* Dark mode */
 .dark {
     background: #121212;
     color: white;
 }
 
 .dark .container {
-    background: #1e1e1e;
+    background: rgba(30, 30, 30, 0.9);
 }
 
 .dark li {
     background: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+.remove {
+    animation: slideOut 0.3s forwards;
 }
