@@ -19,6 +19,7 @@ input {
 
 button {
     padding: 10px;
+    margin: 5px;
     cursor: pointer;
 }
 
@@ -34,4 +35,18 @@ li {
 .completed {
     text-decoration: line-through;
     color: gray;
+}
+
+/* 🌙 Dark Mode */
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark .container {
+    background: #1e1e1e;
+}
+
+.dark li {
+    background: #333;
 }
