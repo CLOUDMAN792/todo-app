@@ -2,11 +2,12 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
 
+    /* Background Image */
     background: url("background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
-/* Overlay */
+/* Dark overlay */
 body::before {
     content: "";
     position: fixed;
@@ -23,6 +24,7 @@ body::before {
     border-radius: 12px;
 }
 
+/* Input */
 input {
     padding: 10px;
     width: 70%;
@@ -30,6 +32,7 @@ input {
     border: 1px solid #ccc;
 }
 
+/* Buttons */
 button {
     padding: 10px;
     margin: 5px;
@@ -43,7 +46,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Task */
+/* Task item */
 li {
     list-style: none;
     padding: 10px;
@@ -66,10 +69,10 @@ li:hover {
     color: gray;
 }
 
-/* Buttons inside task */
+/* Task buttons */
 li button {
-    border: none;
     background: transparent;
+    border: none;
     font-size: 16px;
     cursor: pointer;
 }

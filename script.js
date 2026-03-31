@@ -9,13 +9,13 @@ function addTask() {
     const span = document.createElement("span");
     span.textContent = taskText;
 
-    // ✔️ Complete
+    // Complete
     span.onclick = function () {
         span.classList.toggle("completed");
         saveTasks();
     };
 
-    // ✏️ Edit
+    // Edit
     const editBtn = document.createElement("button");
     editBtn.innerHTML = "✏️";
     editBtn.onclick = function () {
@@ -26,7 +26,7 @@ function addTask() {
         }
     };
 
-    // ❌ Delete (animated)
+    // Delete
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "❌";
     deleteBtn.onclick = function () {
@@ -49,12 +49,12 @@ function addTask() {
     saveTasks();
 }
 
-// Save
+// Save tasks
 function saveTasks() {
     localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
 }
 
-// Load
+// Load tasks
 function loadTasks() {
     document.getElementById("taskList").innerHTML =
         localStorage.getItem("tasks") || "";
@@ -71,5 +71,5 @@ function toggleDarkMode() {
     document.body.classList.toggle("dark");
 }
 
-// Load on start
+// Run on load
 loadTasks();
