@@ -80,3 +80,4 @@ function toggleDarkMode() {
 }
 
 loadTasks();
+localStorage.clear();
