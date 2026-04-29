@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Todo App</title>
+  <meta charset="UTF-8">
+  <title>Advanced Todo App</title>
+
+  <!-- Professional Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Todo List</h2>
+<div class="container">
+  <h1>Task Manager</h1>
 
-<input id="taskInput" placeholder="Enter task">
-<button onclick="addTask()">Add</button>
+  <div class="top-bar">
+    <input type="text" id="taskInput" placeholder="Enter a task...">
+    <button onclick="addTask()">Add</button>
+    <button onclick="toggleDarkMode()">🌙</button>
+  </div>
 
-<ul id="list"></ul>
+  <div class="filters">
+    <button onclick="filterTasks('all')">All</button>
+    <button onclick="filterTasks('active')">Active</button>
+    <button onclick="filterTasks('completed')">Completed</button>
+  </div>
+
+  <ul id="taskList"></ul>
+</div>
 
 <script src="script.js"></script>
 </body>
